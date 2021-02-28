@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/pusher', function () {
+    return view('pusher');
+});
+
+Route::get('/sender', function () {    
+    event(new App\Events\MyEvent('hello world'));
+    return 'send payload ok';
+});
